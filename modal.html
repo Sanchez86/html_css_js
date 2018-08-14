@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>modal</title>
+	<style>
+		.strike{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+
+<style>
+.modal {
+	z-index: 100;
+    background: #fff;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: absolute;
+    top: -50%;
+    width: 100%;
+	max-width:500px;
+    border-radius: 5px;
+    box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	
+	transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -webkit-transition: all 1.5s;
+	
+	color: #0f0a63;
+	    font-family: 'Lato', sans-serif;
+}
+
+.modal.active {
+    top: 10%;
+	transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+.modal header, .modal footer {
+    border-bottom: 1px solid #e7e7e7;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+	background:none;
+	background-color: #75c344;
+	color:#fff;
+}
+.modal footer {
+    border:none;
+    border-top: 1px solid #e7e7e7;
+    border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+}
+.modal section, .modal header, .modal footer {
+    padding: 15px;
+    z-index: 200;
+}
+.modal h2 {
+    margin: 0;
+	text-align: center;
+	font-size: 15px;
+}
+.modal .btn_close {
+	text-decoration: none;
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 20px;
+    transform: rotateZ(45deg);
+	transition: transform 0.5s;
+	color:#fff;
+}
+.modal .btn_close:hover{
+	transform: rotateZ(135deg);
+}
+</style>
+
+<aside class="modal" id="modal">
+    <header>
+		<a href="#" class="btn_close">+</a>
+        <h2>Thank you for registration, <span class="mada_name"></span></h2>
+    </header>
+    <section>
+        Your account will be activated within 24 hours. You will get confirmation to the email you provided. Don't forget to check it :)
+    </section>
+</aside>
+<form>
+
+		<input class="thanks_login" type="text" placeholder="Login" required />
+		<input class="thanks_password" type="password" placeholder="Password" required />
+		<input class="thanks_submit" type="button" placeholder="button" value="button"/>
+		
+</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$('.thanks_submit').on('click', function(){
+		var thanks_login = $('.thanks_login').val();
+		var thanks_password = $('.thanks_password').val();
+		if(thanks_login == "" | thanks_password == ""){
+			
+		}else{
+			$('.modal').addClass('active');
+			$('.mada_name').html(thanks_login);
+			setTimeout(function(){
+				$('.modal').removeClass('active');
+			},15000);
+		}
+	});
+	$('.btn_close').on('click', function(){
+		$('.modal').removeClass('active');
+	});
+</script>
+</body>
+</html>
+
